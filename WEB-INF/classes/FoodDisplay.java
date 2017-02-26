@@ -35,9 +35,15 @@ public class FoodDisplay extends HttpServlet {  // JDK 6 and above only
          // Print an HTML page as output of query
          out.println("<html><head><title>NTU FOOD DELIEVERY</title></head><body>");
     	 out.println("<form method='get' action='shopcart'>");
+         int temp = 0;
          while (rset.next()) {
-
-        	 out.println("<p>" + rset.getString("food_name") + " from CANTEEN"+rset.getInt("canteen_id") + "</p>");
+             int canteen = rset.getInt("canteen_id");
+             if (canteen != temp) {
+                 temp = canteen;
+                 out.println("<hr>");
+                 out.println("<center>Canteen" + canteen + "</center>");
+             }
+        	 out.println("<p>" + rset.getString("food_name") + "</p>");
          }
     	 out.println("<p><input type='submit' value='Proceed to checkout' ></p>");
          //out.println("<p>You query is: " + sqlStr + "</p>"); // Echo for debugging
