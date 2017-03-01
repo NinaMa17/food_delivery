@@ -33,7 +33,7 @@ public class FoodDisplay extends HttpServlet {  // JDK 6 and above only
          ResultSet rset = stmt.executeQuery(sqlStr); // Send the query to the server
          
          // Print an HTML page as output of query
-         out.println("<html><head><title>NTU FOOD DELIEVERY</title></head><body>");
+         out.println("<html><head><title>NTU FOOD DELIEVERY</title></head><body background='bg_img.jpg'>");
     	 out.println("<form method='get' action='shopcart'>");
          int temp = 0;
          while (rset.next()) {
@@ -41,9 +41,9 @@ public class FoodDisplay extends HttpServlet {  // JDK 6 and above only
              if (canteen != temp) {
                  temp = canteen;
                  out.println("<hr>");
-                 out.println("<center>Canteen" + canteen + "</center>");
+                 out.println("<center><font color='white'>Canteen" + canteen + "</font></center>");
              }
-        	 out.println("<p>" + rset.getString("food_name") + "</p>");
+        	 out.println("<p><font color='white'>" + rset.getString("food_name") + "</font></p>");
          }
     	 out.println("<p><input type='submit' value='Proceed to checkout' ></p>");
          //out.println("<p>You query is: " + sqlStr + "</p>"); // Echo for debugging
