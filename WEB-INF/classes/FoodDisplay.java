@@ -29,21 +29,37 @@ public class FoodDisplay extends HttpServlet {  // JDK 6 and above only
          stmt = conn.createStatement();
  
          // Step 3: Execute a SQL SELECT query
-         String sqlStr = "SELECT food_name, canteen_id FROM food ORDER BY canteen_id ASC";
+         String sqlStr = "SELECT I.img_name, F.food_name, F.canteen_id FROM food F, food_img I where F.food_id=I.food_id ORDER BY canteen_id ASC";
          ResultSet rset = stmt.executeQuery(sqlStr); // Send the query to the server
          
          // Print an HTML page as output of query
          out.println("<html><head><title>NTU FOOD DELIEVERY</title></head><body background='bg_img.jpg'>");
     	 out.println("<form method='get' action='shopcart'>");
          int temp = 0;
+         int align_count=0;
          while (rset.next()) {
-             int canteen = rset.getInt("canteen_id");
+ 
+             int canteen = rset.getInt("F.canteen_id");
              if (canteen != temp) {
                  temp = canteen;
                  out.println("<hr>");
-                 out.println("<center><font color='white'>Canteen" + canteen + "</font></center>");
+                 out.println("<p><center><font color='white'>Canteen" + canteen + "</font></center></p>");
+                 align_count = 1;
              }
-        	 out.println("<p><font color='white'>" + rset.getString("food_name") + "</font></p>");
+             if (align_count%3==1) {
+                 //out.println("<p align='left'>");
+                 out.println("<span style='text-align:left;'><img src='"+rset.getString("I.img_name")+"' alt='"+ rset.getString("F.food_name")+"' style='width:320px;height:240px;' /></span>");
+             }
+             if (align_count%3==2) {
+                 //out.println("<p align='center'>");
+                 out.println("<span style='text-align:center;'><img src='"+rset.getString("I.img_name")+"' alt='"+ rset.getString("F.food_name")+"' style='width:320px;height:240px;' /></span>");
+             }
+             if (align_count%3==0) {
+                 //out.println("<p align='right'>");
+                 out.println("<span style='text-align:right;'><img src='"+rset.getString("I.img_name")+"' alt='"+ rset.getString("F.food_name")+"' style='width:320px;height:240px;' /></span>");
+             }
+        	 //out.println("<font color='white'>" + rset.getString("food_name") + "</font>");
+             align_count++;
          }
     	 out.println("<p><input type='submit' value='Proceed to checkout' ></p>");
          //out.println("<p>You query is: " + sqlStr + "</p>"); // Echo for debugging
