@@ -37,7 +37,9 @@ public class ThankYou extends HttpServlet {  // JDK 6 and above only
          String wait_time = request.getParameter("wait_time");
          int phone_number = Integer.parseInt(phone_num);
     	 String sqlStr;
-         //sqlStr = "insert into cus_order values(name, phone_number, address, now());";
+         sqlStr = "insert into cus_order values('"+name+"', '"+phone_number+"', '"+address+"', now());";
+          int count = 0;
+          count=stmt.executeUpdate(sqlStr);
          out.println("<p><center>You will receive your order in "+ wait_time+"</center></p>");
          ////
          //TODO: FORMAT THE TIME INFORMATION!!
