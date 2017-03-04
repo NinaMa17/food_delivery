@@ -37,7 +37,7 @@ public class ShopCart extends HttpServlet {  // JDK 6 and above only
         	 out.println("<h2>Please go back and select your food!</h2>");
         	 return;
          } else {
-        	 sqlStr = "select I.img_name, F.food_name, F.price, F.qty from food F, food_img I where F.food_id in (";
+        	 sqlStr = "select I.img_name, F.food_name, F.price, F.qty, F.food_id from food F, food_img I where F.food_id in (";
         	 sqlStr += "'" + ids[0] + "'";
         	 for (int i = 1; i< ids.length; i++) {
         		 sqlStr += ", '" + ids[i] + "'";
