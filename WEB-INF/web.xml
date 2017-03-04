@@ -12,6 +12,10 @@
     <servlet-class>FoodDisplay</servlet-class>
   </servlet>
   <servlet>
+    <servlet-name>ThankYou</servlet-name>
+    <servlet-class>ThankYou</servlet-class>
+  </servlet>
+  <servlet>
       <servlet-name>ShopCart</servlet-name>
       <servlet-class>ShopCart</servlet-class>
   </servlet>
@@ -25,6 +29,11 @@
     <servlet-name>Bill</servlet-name>
     <url-pattern>/bill</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ThankYou</servlet-name>
+    <url-pattern>/thankyou</url-pattern>
+  </servlet-mapping>
+
   <servlet-mapping>
     <servlet-name>ShopCart</servlet-name>
     <url-pattern>/shopcart</url-pattern>

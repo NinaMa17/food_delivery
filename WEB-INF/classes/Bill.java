@@ -72,7 +72,7 @@ public class Bill extends HttpServlet {  // JDK 6 and above only
 
         
          out.println("<p><center>The total amount is: S$"+total_amount+"</center></p>");
-         out.println("<p>Please enter your personal detail: </p><form>");
+         out.println("<p>Please enter your personal detail: </p>");
          out.println("Enter your name: <input type='text' name='name' /><br/>");
          out.println("Enter your phone number: <input type='text' name='phone' /></br>");
          out.println("Enter your address: <input type='text' name='address' /></br>");
