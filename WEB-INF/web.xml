@@ -15,10 +15,16 @@
       <servlet-name>ShopCart</servlet-name>
       <servlet-class>ShopCart</servlet-class>
   </servlet>
- 
+  <servlet>
+      <servlet-name>Bill</servlet-name>
+      <servlet-class>Bill</servlet-class>
+  </servlet> 
   <!-- Note: All <servlet> elements must be placed
        in front of <servlet-mapping> elements -->
- 
+  <servlet-mapping>
+    <servlet-name>Bill</servlet-name>
+    <url-pattern>/bill</url-pattern>
+  </servlet-mapping>
   <servlet-mapping>
     <servlet-name>ShopCart</servlet-name>
     <url-pattern>/shopcart</url-pattern>

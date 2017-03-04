@@ -30,7 +30,7 @@ public class ShopCart extends HttpServlet {  // JDK 6 and above only
  
          // Step 3: Execute a SQL SELECT query
          out.println("<html><head><title>SHOP CART</title></head><body background='bg_img.jpg'>");
-    	 out.println("<form method='get' action='bill'>");
+    	 out.println("<form method='post' action='bill'>");
          String[] ids = request.getParameterValues("food_id");
          String sqlStr;
          if (ids == null) {
@@ -51,7 +51,7 @@ public class ShopCart extends HttpServlet {  // JDK 6 and above only
          while (rset.next()) {
         	 out.println("<p><tr><td>"+rset.getString("I.img_name")+"</td><td>S$"+
          rset.getDouble("F.price")+"</td><td><input type='number' name='food_qty' value='0' min='0' max='"+
-        			 rset.getInt("F.qty")+"' ></td></tr></p>");
+        			 rset.getInt("F.qty")+"' ><input type='hidden' name='food_id' value='"+rset.getInt("F.food_id")+"' ><input type='hidden' name='food_price' value='"+ rset.getDouble("F.price")+"' ></td></tr></p>");
          }
          out.println("</table>");
        
