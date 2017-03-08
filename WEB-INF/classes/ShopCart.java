@@ -21,7 +21,7 @@ public class ShopCart extends HttpServlet {  // JDK 6 and above only
          // Step 1: Create a database "Connection" object
          // For MySQL
          conn = DriverManager.getConnection(
-            "jdbc:mysql://localhost:3306/food_delivery", "myuser", "xinyue");  // <<== Check
+            "jdbc:mysql://172.22.210.114:3306/food_delivery", "myuser", "xinyue");  // <<== Check
          // For MS Access
          // conn = DriverManager.getConnection("jdbc:odbc:ebookshopODBC");
  
@@ -30,6 +30,7 @@ public class ShopCart extends HttpServlet {  // JDK 6 and above only
  
          // Step 3: Execute a SQL SELECT query
          out.println("<html><head><title>SHOP CART</title></head><body background='bg_img.jpg'>");
+         out.println("<p align='center'><font size='50' color='orange'>NTU Food Delivery</font></p>");
     	 out.println("<form method='post' action='bill'>");
          String[] ids = request.getParameterValues("food_id");
          String sqlStr;

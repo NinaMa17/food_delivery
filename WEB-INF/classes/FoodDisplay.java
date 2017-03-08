@@ -21,7 +21,7 @@ public class FoodDisplay extends HttpServlet {  // JDK 6 and above only
          // Step 1: Create a database "Connection" object
          // For MySQL
          conn = DriverManager.getConnection(
-            "jdbc:mysql://localhost:3306/food_delivery", "myuser", "xinyue");  // <<== Check
+            "jdbc:mysql://172.22.210.114:3306/food_delivery", "myuser", "xinyue");  // <<== Check
          // For MS Access
          // conn = DriverManager.getConnection("jdbc:odbc:ebookshopODBC");
  
@@ -34,6 +34,7 @@ public class FoodDisplay extends HttpServlet {  // JDK 6 and above only
          
          // Print an HTML page as output of query
          out.println("<html><head><title>NTU FOOD DELIEVERY</title></head><body background='bg_img.jpg'>");
+          out.println("<p align='center'><font size='50' color='orange'>NTU Food Delivery</font></p>");
     	 out.println("<form method='post' action='shopcart'>");
          int temp = 0;
          int align_count=0;
