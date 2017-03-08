@@ -8,7 +8,7 @@ public class ShopCart extends HttpServlet {  // JDK 6 and above only
  
    // The doGet() runs once per HTTP GET request to this servlet.
    @Override
-   public void doPost(HttpServletRequest request, HttpServletResponse response)
+   public void doGet(HttpServletRequest request, HttpServletResponse response)
                      throws ServletException, IOException {
       // Set the MIME type for the response message
       response.setContentType("text/html");
